@@ -170,4 +170,13 @@
 # **Link**
 
 ### Link is used to navigate between pages as anchor <a>.
+
 ### In link replace attribute or prop when Link have replace prop, replace prop replaces current history state of URL
+
+# **Active Links**
+
+### we are using it in _layout.tsx_ of root
+
+### usePathname to highlight active link and it is hook so we need to make page client side using 'use client'
+
+# **Big Change => We want to use client for links of header and server side metadata for homepage title so we made two separate files in app folder made _metadata.ts_ and _Rootlayout.tsx_ and then call both in _layout.tsx_ that is main layout, so to use both client side and server side component we have applied this method. **
