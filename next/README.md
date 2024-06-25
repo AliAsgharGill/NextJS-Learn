@@ -42,4 +42,4 @@
 
 
 ## **Nested Dynamic Routing**
-### 
+### Need to do make another folder e.g reviews and then one more inside it but with brackets like [reviewId] and page.tsx  and now need to use params for both proudctId and reviewId inside page.tsx
