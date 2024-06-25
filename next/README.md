@@ -27,3 +27,11 @@
 ### All routes must be placed **inside app folder**
 ### Every file that corresponds to a route the file must name as page.tsx or page.js 
 ### Every folder corresonds to a path segement in browser URL
+
+
+## Nested
+### to create nested routing create another folder inside the folder and file page.tsx and then access it with name of folder
+
+## Dynamic Routing
+### To do dynamic routing need to write folder name inside brackets [], like [productId] and then make file inside it page.tsx
+###  Need to use **params** parameter for id that's in the URL of specific product details.
