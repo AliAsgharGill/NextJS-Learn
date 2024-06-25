@@ -118,3 +118,51 @@
 # **Nested Layout File**
 
 ### If we want to create layout for specific folder or we can create layout file in that folder. Here we will create for products in [productId] folder, so we can access this layout in all product details. I have added **Featured Products** inside layout of it. Now if we visit this page we will se feature product component below of it.
+
+# **Routing Metadata**
+
+### Ensuring proper search engine optimization (SEO) is crucial for increasing visibility and attracting users.
+
+### NextJs introduce the metadata api which allows you to define metadata for each page
+
+### Metadata ensures accurate and relevant information displayed when your pages are shared or indexed
+
+## _Configuring Metadata_
+
+### Export a static Metadata object
+
+### Export dynamic generateMetadata function
+
+## _Metadata rules_
+
+### _layout.tsx_ and _page.tsx_ both can export Metadata, but Metadata of _layout.tsx_ applied to all pages in the layout and Metadata of _page.tsx_ only applied to that file or page.
+
+### Metadata is read in order, from root level down to the final page level, e.g. About page is deeper then root layout so it will get metadata from layout of about if it have separate layout.
+
+### When there's Metadata in multiple places for the same route, they get combined but page metadata will replace layout metadata if they have same properties(title, description)
+
+## _Page Metadata precedence or priority is higher then layout Metadata_
+
+### now we will write metadata in about folder.
+
+## **Dynamic Metadata**
+
+### Dynamic Metadata common case where we using dynamic routing [anyPage], now we will use it in [productId] page.tsx and also need to write types of it.
+
+## we can not export both Metadata object and generateMetadata function from the same route segment
+
+# **Title Metadata**
+
+### The title field's primary purpose is to define the document title
+
+### Title can be either a string or an object, to use an object its is necessary to import {MetaData} from 'next' and use it with metadata as type, we will do it in root _layout.tsx_
+
+### If want to use Title as object it have _three properties, absolute, default and template_.
+
+### absolute : if we are in children folder or file and want to provide title that ignore template of root layout we will use absolute, like we did in blog page, also we can use absolute only but default and template can not be use only, need to use both or with absolute.
+
+### default : if children page or layout don't have any title, then children will get this title
+
+### template : template: "%s | Next App", in place of %s current folder title will come and Next app from the root layout
+
+### Default is useful for child, e.g if child don't have Title it will get it default title from here.
