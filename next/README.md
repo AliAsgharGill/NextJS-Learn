@@ -2,6 +2,8 @@
 
 # **NextJS**
 
+## **Folders name must be in lowercase**
+
 ## **Server components**
 
 ### In NextJs all components are server components by default.
@@ -71,22 +73,48 @@
 
 # **Not Found Page**
 
-## To make page that come instead of 404 default page need to make another file in **app** folder with name **not-found.tsx** name should be this, and style it as you want.
+### To make page that come instead of 404 default page need to make another file in **app** folder with name **not-found.tsx** name should be this, and style it as you want.
 
 ### we can also show it programmatically using function **notFound** and import it from **import notFound from "next/navigation"** and then call(invoke) it in certain condition, e.g if we have product page and if id of product is grater then 1000 then show NotFound Page.
 
 # **CoLoction**
 
-## In simple words making another function inside page.tsx without exporting.
+### In simple words making another function inside page.tsx without exporting.
 
-## A route is publicly stabled until a page.tsx file is in the folder, if no page.tsx file then folder is accessible but it will show 404 page.
+### A route is publicly stabled until a page.tsx file is in the folder, if no page.tsx file then folder is accessible but it will show 404 page.
 
-## if we made an page.tsx file and make another function without exporting it will not show any error, but when we add a function with export default it will not show any error.
+### if we made an page.tsx file and make another function without exporting it will not show any error, but when we add a function with export default it will not show any error.
 
 # **Private Folders**
 
-## Private folder mean folder itself and all its sub-folders are excluded from routing
+### Private folder mean folder itself and all its sub-folders are excluded from routing
 
-## To make private folder simply name it with underscore ("\_") or "%5F" like, "\_dashboard", "\_about", "\_blog", "\_products" these all are the example of private folders. Backward slash is added automatically when file saved, no need to write backward \ with name.
+### To make private folder simply name it with underscore ("\_") or "%5F" like, "\_dashboard", "\_about", "\_blog", "\_products" these all are the example of private folders. Backward slash is added automatically when file saved, no need to write backward \ with name.
 
-## Why Private folders?For separating UI logic from routing logic
+### Why Private folders?For separating UI logic from routing logic
+
+# **Route Groups**
+
+### Route groups mean multiple folder in that have routes like
+
+### (auth) Auth folder cover with parentheses so in URL no need to write name of auth folder, we can directly access files inside auth folder. here we have created, login, signup, forgot-password
+
+# **Route Group Layout**
+
+### Now we have created a folder (with-auth_layout), and make a file layout.tsx in it, so now folder in (with-auth-layout) will get affect of this layout.tsx
+
+### To selectively apply a layout to certain segments while leaving others unchanged
+
+### To organize your project in a manner that does't affect the URL
+
+# **Layout File**
+
+### Layout mean component should accept a children prop that will be populated with child during rendering. e.g, In app folder layout.tsx come with function have parameter children that render function of page.tsx file.
+
+### we can add header and footer in this file.
+
+### Fun Fact: By default file come in app folder with name layout.tsx, if we delete it, it will again come.
+
+# **Nested Layout File**
+
+### If we want to create layout for specific folder or we can create layout file in that folder. Here we will create for products in [productId] folder, so we can access this layout in all product details. I have added **Featured Products** inside layout of it. Now if we visit this page we will se feature product component below of it.
