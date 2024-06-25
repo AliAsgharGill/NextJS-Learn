@@ -166,3 +166,8 @@
 ### template : template: "%s | Next App", in place of %s current folder title will come and Next app from the root layout
 
 ### Default is useful for child, e.g if child don't have Title it will get it default title from here.
+
+# **Link**
+
+### Link is used to navigate between pages as anchor <a>.
+### In link replace attribute or prop when Link have replace prop, replace prop replaces current history state of URL
