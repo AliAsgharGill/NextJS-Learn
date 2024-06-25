@@ -9,3 +9,11 @@ function Dashboard() {
 }
 
 export default Dashboard;
+
+function BarChart() {
+  return (
+    <div>
+      <h1>Bar Chart Page</h1>
+    </div>
+  );
+}

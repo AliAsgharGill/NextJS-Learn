@@ -75,3 +75,10 @@
 
 ### we can also show it programmatically using function **notFound** and import it from **import notFound from "next/navigation"** and then call(invoke) it in certain condition, e.g if we have product page and if id of product is grater then 1000 then show NotFound Page.
 
+# **CoLoction**
+
+## In simple words making another function inside page.tsx without exporting.
+
+## A route is publicly stabled until a page.tsx file is in the folder, if no page.tsx file then folder is accessible but it will show 404 page.
+
+## if we made an page.tsx file and make another function without exporting it will not show any error, but when we add a function with export default it will not show any error.
