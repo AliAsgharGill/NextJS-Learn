@@ -82,3 +82,11 @@
 ## A route is publicly stabled until a page.tsx file is in the folder, if no page.tsx file then folder is accessible but it will show 404 page.
 
 ## if we made an page.tsx file and make another function without exporting it will not show any error, but when we add a function with export default it will not show any error.
+
+# **Private Folders**
+
+## Private folder mean folder itself and all its sub-folders are excluded from routing
+
+## To make private folder simply name it with underscore ("\_") or "%5F" like, "\_dashboard", "\_about", "\_blog", "\_products" these all are the example of private folders. Backward slash is added automatically when file saved, no need to write backward \ with name.
+
+## Why Private folders?For separating UI logic from routing logic
