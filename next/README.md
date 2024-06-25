@@ -68,3 +68,10 @@
 ### if we visit simply docs page we will get 404 error so resolve it need to use optional catch all segments, to do this cover slug folder with another brackets, like [[...slug]] and after we will get error on docs page, so to solve it, we will use optional keyword "?" in page.tsx, like (params.slug?.length === 1) with all conditions.
 
 ### if no route match it will return component of Docs component
+
+# **Not Found Page**
+
+## To make page that come instead of 404 default page need to make another file in **app** folder with name **not-found.tsx** name should be this, and style it as you want.
+
+### we can also show it programmatically using function **notFound** and import it from **import notFound from "next/navigation"** and then call(invoke) it in certain condition, e.g if we have product page and if id of product is grater then 1000 then show NotFound Page.
+
