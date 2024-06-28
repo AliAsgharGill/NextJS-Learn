@@ -346,3 +346,22 @@
 # **Parallel Intercepting Routes**
 
 ### We have implemented both Intercepting and Parallel Intercepting Routes routing in photo-feed route/folder.
+
+# **Route Handlers**
+
+### We can create custom request handlers for our routes using a feature called route handlers.
+
+### Unlike page routes which respond with HTML content, route handlers allow you to create _RESTful_ endpoints, giving us full control our response.
+
+### Route handler also great for making external API requests
+
+### Route handlers run server-side, ensuring that senstive info like keys remain same and never gets shipped to the browser.
+
+### Route Handlers are equivalent of API routes in Page router
+
+### NextJS simplify routing on Front-end and Back-end
+
+### _IMPORTANT_: if we have both files _route.ts_ and _page.ts_ in same folder then _route.ts_ will executed in the browser by default. to make it correct need to create a folder with _api_ folder in that particular folder and move _route.ts_ in _api_ folder. like we did in /me route/folder: e.g me->api>route.ts
+
+3120281277396
+Mariaa786@
