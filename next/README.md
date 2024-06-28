@@ -363,5 +363,7 @@
 
 ### _IMPORTANT_: if we have both files _route.ts_ and _page.ts_ in same folder then _route.ts_ will executed in the browser by default. to make it correct need to create a folder with _api_ folder in that particular folder and move _route.ts_ in _api_ folder. like we did in /me route/folder: e.g me->api>route.ts
 
-3120281277396
-Mariaa786@
+# **SIMPLE CRUD**
+### To make GET request simply make an asynchronous function in *api/route.ts* file or any other file you want to make request,    and then return Response.json(endpintHere)
+
+### To make POST request simpl make an asynchronous function, see code exampole 
