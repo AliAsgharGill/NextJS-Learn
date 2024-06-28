@@ -1,4 +1,4 @@
-import FeatureProducts from "@/components/Feature/feature";
+import FeatureProducts from "@/components/feature/feature";
 
 // function getRandomInt(count: number): number {
 //   return Math.floor(Math.random() * count);

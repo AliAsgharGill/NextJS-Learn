@@ -260,3 +260,31 @@
 ## Lets introduce an error scenario in [productId] page file page.tsx using getRandomInt function it will generate number and invoke it with getRandomInt(2) so it will generate only 0 or 1 if number is one the we will show error.
 
 ## We need to make our _page.tsx_ file client side
+
+# **Parallel Routes**
+
+## Parallel routes in NextJs defined using a feature known as _slots_
+
+## Slots help structure our content in modular fashion
+
+## To define a slot, we use the "@" e.g. _@folderName_ naming convention, now this folder will known as slot.
+
+## IMPORTANT: Slots always used as _prop in layout with its folder name not function_.
+
+## Each slot then passed as a prop to the layout that's in same folder, or in other words to its corresponding _layout.tsx_ file.
+
+## Now we made three slots inside the complex-dashboard route and now they are passed as prop as their _folder name_ like name _page.tsx_ or its function file to _layout.tsx_ file. like @revenue will be revenue, notification as notification and users as users.
+
+## FUN FACT: children prop that we get every time in component props is also a slot.
+
+## **Benefits of Parallel Routes**
+
+### A clear benefit of parallel routes is their ability to split a single layout into various slots, making the code more manageable.
+
+### _True benefits of parallel routes following:_
+
+### Independent route handling
+
+#### if we made slots use then in layout, each slot of layout, have its own loading and error states. Like we made _@users_, _@revenue_ and _@notification_ slots these three have their own loading and error states.
+#### This Granular control is particularly beneficial scenarios where different sections of the page load at varying speeds or encounter unique erros
+### Sub-navigation
