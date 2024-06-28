@@ -213,7 +213,7 @@
 
 ## **Error**
 
-## Lets introduce an error scenario in [reviewId] page file page.tsx.
+## Lets introduce an error scenario in [reviewId] page file page.tsx using getRandomInt function it will generate number and invoke it with getRandomInt(2) so it will generate only 0 or 1 if number is one the we will show error.
 
 ## Automatically wrap a route segment and its nested children in a React Error Boundary.
 
@@ -248,3 +248,15 @@
 ## 100 of 1, because error occur/bubble up/come up to he closest error boundary, so make _error.tsx_ file secret for each route segment, else if error come in nested children file it replace the whole UI of children file _pages.tsx_ with _error.tsx_ file. So use _error.tsx_ in children folders it make error handling easy.
 
 ## example in products/reviews
+
+# **Handling Errors in Layouts**
+
+## An _error.tsx_ file will hadle error from all its children segements.
+
+## The error boundary does not catch errors thrown here because it's nested inside they layout component, to handle error of _layout.tsx_ file need to move _error.tsx_ file to its parent folder, then instead of crashing file error, it will show error message.
+
+## Let's make an _error.tsx_ file inside the [productId]
+
+## Lets introduce an error scenario in [productId] page file page.tsx using getRandomInt function it will generate number and invoke it with getRandomInt(2) so it will generate only 0 or 1 if number is one the we will show error.
+
+## But we need to make our _page.tsx_ file client side
