@@ -259,4 +259,4 @@
 
 ## Lets introduce an error scenario in [productId] page file page.tsx using getRandomInt function it will generate number and invoke it with getRandomInt(2) so it will generate only 0 or 1 if number is one the we will show error.
 
-## But we need to make our _page.tsx_ file client side
+## We need to make our _page.tsx_ file client side
