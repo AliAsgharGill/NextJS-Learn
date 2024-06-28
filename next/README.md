@@ -213,15 +213,17 @@
 
 ## **Error**
 
-## Lets introduce an error scenerio in [reviewId] page file page.tsx.
+## Lets introduce an error scenario in [reviewId] page file page.tsx.
 
 ## Automatically wrap a route segment and its nested children in a React Error Boundary.
 
 ## Isolate error to affected segments while keeping the rest of application functional
 
-## Create error UI tailored specifg segments using the file system hierarchy to adjust granularity
+## Create error UI tailored specif segments using the file system hierarchy to adjust granularity
 
 ## Add functionality to attempt to recover from an error without a full page reload
+
+## example in products/reviews
 
 # **Recovering From Errors**
 
@@ -230,3 +232,19 @@
 ## make both _error.tsx_ and _page.tsx_ file client side component using _'use client'_
 
 ## Make a button in _error.tsx_ file with name try again and onClick of it invoke reset function and make _page.tsx_ client component.
+
+## example in products/reviews
+
+# **Handling Errors In Nested Routes**
+
+## Error bubble up or come up to the closest error boundary
+
+## An _error.tsx_ file will cater to errors for all its nested child segments
+
+## By positing _error.tsx_ file at different levels in the nested folder of a route, you can achieve a more granular level of error handling.
+
+## Granular error handling refers to managing errors with varying levels of specificity, from broad application-wide errors to detailed errors within specific routes or components. This approach improves user experience and aids in efficient debugging.
+
+## 100 of 1, because error occur/bubble up/come up to he closest error boundary, so make _error.tsx_ file secret for each route segment, else if error come in nested children file it replace the whole UI of children file _pages.tsx_ with _error.tsx_ file. So use _error.tsx_ in children folders it make error handling easy.
+
+## example in products/reviews
