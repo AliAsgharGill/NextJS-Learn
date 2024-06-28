@@ -222,3 +222,11 @@
 ## Create error UI tailored specifg segments using the file system hierarchy to adjust granularity
 
 ## Add functionality to attempt to recover from an error without a full page reload
+
+# **Recovering From Errors**
+
+## we will do it using _reset function_ that we can destructure it from
+
+## make both _error.tsx_ and _page.tsx_ file client side component using _'use client'_
+
+## Make a button in _error.tsx_ file with name try again and onClick of it invoke reset function and make _page.tsx_ client component.
