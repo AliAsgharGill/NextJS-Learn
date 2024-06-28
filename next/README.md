@@ -180,3 +180,7 @@
 ### usePathname to highlight active link and it is hook so we need to make page client side using 'use client'
 
 # **Big Change => We want to use client for links of header and server side metadata for homepage title so we made two separate files in app folder made _metadata.ts_ and _Rootlayout.tsx_ and then call both in _layout.tsx_ that is main layout, so to use both client side and server side component we have applied this method. **
+
+# **Navigate Programmatically**
+## We need to use hook useRouter from next/navigation and then onClick of button or any other component need to use router.push("/") to redirect user to homepage.
+### we can use router.push("/"), router.refresh() to refresh current page, router.back(), router.forward("/product"), also router.replace(), replace work same as attribute in Link, it will era  se history.
