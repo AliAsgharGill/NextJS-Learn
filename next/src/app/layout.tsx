@@ -1,4 +1,3 @@
-// layout.tsx
 import { metadata } from "./metadata";
 import RootLayout from "./Rootlayout";
 

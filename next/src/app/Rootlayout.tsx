@@ -16,7 +16,7 @@ const navLinks = [
   { name: "Products", href: "/products" },
   { name: "About", href: "/about" },
   { name: "Login", href: "/login" },
-  { name: "register", href: "/register" },
+  { name: "register", href: "/register" },  
   { name: "Dashboard", href: "/dashboard" },
   { name: "Profile", href: "/profile" },
 ];
@@ -40,7 +40,7 @@ export default function RootLayout({
             );
           })}
         </div>
-        {children}
+          {children}
         <div>
           <Footer />
         </div>

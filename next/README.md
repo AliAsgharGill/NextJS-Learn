@@ -182,5 +182,17 @@
 # **Big Change => We want to use client for links of header and server side metadata for homepage title so we made two separate files in app folder made _metadata.ts_ and _Rootlayout.tsx_ and then call both in _layout.tsx_ that is main layout, so to use both client side and server side component we have applied this method. **
 
 # **Navigate Programmatically**
+
 ## We need to use hook useRouter from next/navigation and then onClick of button or any other component need to use router.push("/") to redirect user to homepage.
-### we can use router.push("/"), router.refresh() to refresh current page, router.back(), router.forward("/product"), also router.replace(), replace work same as attribute in Link, it will era  se history.
+
+### we can use router.push("/"), router.refresh() to refresh current page, router.back(), router.forward("/product"), also router.replace(), replace work same as attribute in Link, it will era se history.
+
+# **Template**
+
+## _Note:_ layout file only mount/change the part representing the content of newly loaded page and keep all the common components untouched, like search bar on any input above the shared layout components, layout don't mount/change shared components, **But** Templates change/mount the shared component. In _layout.tsx_ like we did now made an input element and stored its value in state and then we switch between same layout pages, it does not change the input component because its above the children in layout.tsx, but if use _template.tsx_ it will change the shared component.
+
+## Templates commonly not used.
+
+## Templates are similar to layouts in the wrap each child layout or page,
+
+## But when templates, when a user navigate between routes that share a template, a new instance fo the component is mounted, DOM elements are recreated, state is not preserved, and effects are re-synchronized
