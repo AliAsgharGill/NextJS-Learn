@@ -210,3 +210,15 @@
 ## 1. We can show loading state as soon as a user navigate to a new router, it make user-friendly and user now his request is acknowledge and loading.
 
 ## 2. NextJs allow the creation of shared layouts that remain interactive while new route segments are loading. and user can intrect with other part of app, like navbar etc.
+
+## **Error**
+
+## Lets introduce an error scenerio in [reviewId] page file page.tsx.
+
+## Automatically wrap a route segment and its nested children in a React Error Boundary.
+
+## Isolate error to affected segments while keeping the rest of application functional
+
+## Create error UI tailored specifg segments using the file system hierarchy to adjust granularity
+
+## Add functionality to attempt to recover from an error without a full page reload
