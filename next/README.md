@@ -196,3 +196,17 @@
 ## Templates are similar to layouts in the wrap each child layout or page,
 
 ## But when templates, when a user navigate between routes that share a template, a new instance fo the component is mounted, DOM elements are recreated, state is not preserved, and effects are re-synchronized
+
+# **Loading**
+
+## Need to make _loading.tsx_ file in the page or group where we want to show loading. like here we make for blog page.
+
+## This file automatically wrap page.tsx file and all the children within react suspense boundary.
+
+## we can use skelton and spinners in it.
+
+## _Benefits_
+
+## 1. We can show loading state as soon as a user navigate to a new router, it make user-friendly and user now his request is acknowledge and loading.
+
+## 2. NextJs allow the creation of shared layouts that remain interactive while new route segments are loading. and user can intrect with other part of app, like navbar etc.
