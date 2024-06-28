@@ -322,3 +322,27 @@
 ### Conditional Routing where we can check condition, if user is login then show particular pages, or parts else not.
 
 ### if conditional routing is working make sure to restart the server.
+
+## **Intercepting Routes**
+
+### Intercepting routes allow us to intercept or stop the default routing behavior to present an alternative view or component when navigating through the UI, while still preserving the intended route for scenarios like page reloads.
+
+### This is helpful if we want to show a route while keeping the context of the current page.
+
+### _Intercepting Routes Conventions_
+
+### To create an intercepting route, At the same level create a new folder with same name of the route we want to intercept, like here we want to intercept folder with name _f2_ so we need to make more folder at same level with name (.)f2, then create page.tsx in it.
+
+### Intercepting routes allow us to load a route from another part part of application within in the current layout. This is helpful when want to we dispaly the content of the route without user switching to a different context.
+
+### (.) to match segments on the same level
+
+### (..) to match segments one level above
+
+### (..)(..) to match segments two levels above
+
+### (...) to match segments from the root app directory
+
+# **Parallel Intercepting Routes**
+
+### We have implemented both Intercepting and Parallel Intercepting Routes routing in photo-feed route/folder.
