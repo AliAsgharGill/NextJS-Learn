@@ -316,3 +316,9 @@
 ### The _default.tsx_ file in the NextJs serves as a fallback to render content when the framework cannot retrieve a slot's active state from the current URL.
 
 ### We can design whatever we want to show in _default.tsx_, but its prefer to use _page.tsx_ because it will serve same UI as it default have.
+
+## **Conditional Routes**
+
+### Conditional Routing where we can check condition, if user is login then show particular pages, or parts else not.
+
+### if conditional routing is working make sure to restart the server.
