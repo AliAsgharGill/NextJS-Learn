@@ -286,5 +286,33 @@
 ### Independent route handling
 
 #### if we made slots use then in layout, each slot of layout, have its own loading and error states. Like we made _@users_, _@revenue_ and _@notification_ slots these three have their own loading and error states.
-#### This Granular control is particularly beneficial scenarios where different sections of the page load at varying speeds or encounter unique erros
+
+#### This Granular control is particularly beneficial scenarios where different sections of the page load at varying speeds or encounter unique errors.
+
+#### 100 of 1. All slots in _layout.tsx_ have isolated from each other, if one got error other will not get effected and if one is loading it will not effect others.
+
 ### Sub-navigation
+
+#### Each slot of your dashboard can essentially _function as mini-application_, complete with its own navigation and state management
+
+#### This is especially useful in complex application such as our dashboard where different sections serve distinct purposes.
+
+## **Unmatched Routes**
+
+### _Navigation From the UI_
+
+### In the case of navigation within the UI, Nextjs retains the previously active state of a slot regardless of changes in the URL. => Mean when user move from notifications slot to its children archived folder other slots of _layout.tsx_ will not change, they will retain same, but when user is on children folder like here _notification->archived_ and reload the page then other slots will get affected and can not show data, in this case _default.tsx_ come. _default.tsx_ will be shown of these slots.
+
+### _Page reload_
+
+### NextJs immediately searches for a _default.tsx_ file within each unmatched slot.
+
+### The presence of this file is critical, as it provides the default content that Next.js will render in the user interface.
+
+### if the _default.tsx_ file is missing in any of the unmatched slots for the current route, Nextjs will rnder a 404 error.
+
+### _default.tsx_
+
+### The _default.tsx_ file in the NextJs serves as a fallback to render content when the framework cannot retrieve a slot's active state from the current URL.
+
+### We can design whatever we want to show in _default.tsx_, but its prefer to use _page.tsx_ because it will serve same UI as it default have.

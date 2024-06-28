@@ -1,9 +1,9 @@
 import Card from "@/components/card.tsx/page";
 
-export default function RevenueMetrics() {
+export default function DefaultUsersAnalytics() {
   return (
     <>
-      <Card>Revenue</Card>
+      <Card>Users</Card>
     </>
   );
 }

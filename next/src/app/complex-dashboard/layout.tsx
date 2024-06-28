@@ -13,12 +13,12 @@ export default function DashboardLayout({
     <>
       <div>
         <div>{children}</div>
-        <div className="flex">
-          <div className="flex flex-col">
+        <div className="flex h-screen">
+          <div className="flex flex-col h-1/2 w-1/2 ">
             <div>{users}</div>
             <div>{revenue}</div>
           </div>
-          <div className="flex flex-1">{notifications}</div>
+          <div className="flex flex-1 w-full ">{notifications}</div>
         </div>
       </div>
     </>
