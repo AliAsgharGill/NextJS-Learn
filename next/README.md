@@ -351,12 +351,48 @@
 
 ### we create a time route and make route.ts file then return current localTime, then check it and its updating automatically whenever refresh site, but when refresh after _npm run build_ and then _npm run dev_, time is not updating automatically because its getting time from cache. So we need to make component dynamic using this command, _export const dynamic = "force-dynamic";_ Note: by default the value of dynamic is _auto_ but we used _force-dynamic_ so ensuring the handler is executed for each request made by user. if we know we now rebuild our site using _npm run build_ and then _npm run dev_ then we will get time current time every time we refresh site.
 
-### route Handlers are cached by default  when using GET method with the Response object in Next.js
+### route Handlers are cached by default when using GET method with the Response object in Next.js
 
 ### How to opted out of caching?
+
 #### - dynamic mode in Segment Config Option
+
 #### - using the Request object with the GET method
+
 #### - employing dynamic function like headers() and cookies()
+
 #### - using nay HTTP method other than GET
 
 # **Middleware**
+
+### middleware file should be only one in a project.
+
+### middleware in NextJS is a powreful fetue that offers a robust way to intercept and control the flow of reqests and responses within your applications.
+
+### it does this at gloabl level significantly enhancing features like redirection, URL rewrites, authentication, header and cookies management and more.
+
+### Middleware allows us to specify paths where it will be active
+
+#### - Custom matcher config
+
+#### - Conditional statements
+
+# **Routing Summary**
+
+### Till we have learned these topics of routing
+
+### Route definition
+
+### Pages and layouts
+
+### Dynamic routes
+
+### Route groups
+
+### Linking and Navigation
+
+### Handling errors in routes
+
+### Parallel and Intercepting routes
+
+### Route handlers and middleware
