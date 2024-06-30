@@ -466,6 +466,42 @@ const MyComponent = lazy(()=> import('./MyComponent.js'))
 ### This feature called _Selective Hydrating_,
 
 ### After these solution some challenge and problems will remain.
-### 1- If file size increase user need to load more data and mor time required., An important question come here, *Should user rally have to downlaod so much data?*
-### 2 -All components will undergo for hydration on the client side.This process can extend the loading time. An imporant come here, *Should all components be hydrated, even those don't need interectvity?*
-### 3- In spit of server's superior capacity of hanlding intensive processing tasks, the buld of js execution will take's place on the user device, it can slow down process, especially on slow devices. An importnat question here: *Should so much of the work be done on the user's device?*
+
+### 1- If file size increase user need to load more data and mor time required., An important question come here, _Should user rally have to downlaod so much data?_
+
+### 2 -All components will undergo for hydration on the client side.This process can extend the loading time. An imporant come here, _Should all components be hydrated, even those don't need interectvity?_
+
+### 3- In spit of server's superior capacity of hanlding intensive processing tasks, the buld of js execution will take's place on the user device, it can slow down process, especially on slow devices. An importnat question here: _Should so much of the work be done on the user's device?_
+
+# **Solution: React Server Component**
+
+### This approach aims to leverage the strength of both _Server and Client_ environments, _oprimizing for effciency, load times, and interactivity_
+
+### This architecture _RSC_ introduces a dual-compnent model.
+
+### 1- Client Components
+
+### 2- Server Components
+
+### THis distinction is not bases on th functionality of the components but ratr on where they execute and the specific environments they are designed to interact with.
+
+### _Server components_
+
+### It reduce bundel size
+
+### Direct access to server-side resources
+
+### Enhanced Security
+
+### Importve data fetching, elmeinated waterfall on client-side
+
+### Caching
+
+### Faster initali page load and First Contentful Paint
+
+### Improve SEO
+
+### Efficient Streaming(Loaidng/showing)
+
+### Server components take charge of data fetcing and static rendering, whitel Clinet components are tasked with rendering the interactive elments of the application.
+### The bbottom lin eis that the RSC architecture enables React application sot leverage the bes aspects of both server and client rendering.
