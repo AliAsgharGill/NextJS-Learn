@@ -396,3 +396,76 @@
 ### Parallel and Intercepting routes
 
 ### Route handlers and middleware
+
+# **Rendering**
+
+## **CSR**
+
+### CSR => Used by React, in it server send HTML AND JS files to client and it CSR render the whole site in the browser so initial loading time increased, and in CSR server only send a single div in Html file that is not helpul for SEO, parsing and other etc.
+
+## **SSR**
+
+### To solve CSR problems SSR come, it render the HTML page on server site and then complete render HTML file and JS file send to Client(browser). and complete file come with metadata so it improve SEO, and loading time decrese due to rendering on Server Site.
+
+## _Hydration_
+
+### Sending request by client(browser) and then Server response to it by providing Render Html and JS file, this process in known as Hydration. Content should be same as on the Client as it was on the Server, no changes if changes happen it will show error of hydration.
+
+## _Server side solutions_
+
+### 1- Static site generation (SSG)
+
+### 2- Server side Rendering (SSR)
+
+### _SSG_ occurs at build time, when the application is deployed on the server. This result in pages that are already rendered and read to serve. It is ideal for content that does't change often, like blog posts
+
+### _SSR_ on the other hand, renders pages on-demand in response to user requests. it is suiteable for presonalized content like social meda feeds, where the HTML depends on the logged-in user.
+
+### Server-side Rendering (SSR) was significant imporvement over Client-Side Rendering (CSR), providing faster intial laods and better SEO.
+
+### _Drawback of SSR_
+
+### 1- Having to load the data for the entire page
+
+### 2- Load the JavaScript for the entire page, mean JS required for component need to be fully loaded before on the client side before the hydaration process start.
+
+### 3- Hydration the entire page, mean same HTML and JavaScript load on client side as it was on the Server side. So all compoents need to be hydrated before they become inteactive.
+
+### mean _Create all or nothing_ waterfall problem that spans from the server to the client.
+
+### This is inefficient if some parts of APP are slower than other, as is often the case in real-world apps.
+
+## **Solution**
+
+### _Suspense SSR Architecture_
+
+### Use the \*<Suspense fallback=<Loading Component Here, Spinner, Loading... etc.> > component to unloack major SSR featues:
+
+### 1- HTML streaming on the Server
+
+### 2- Selective Hydaration on the client
+
+### Note: When client side send request initially to server for data, before getting initailly data from server it is _Non-intrective UI_, then Sever send _full HTML + Js fils_ then client display whole HTML and after completely loading the loaded JS bundle, then react proceed to add _Interective UI_
+
+### For 1st drawback, This was helpful to solve one problem, HTML loading(streaming) on the sever, so we no need to fetch everything before show anything. we can speedup html delivery now but other problem is still remaianig.
+
+### _The other chellange_
+
+### Untill JS for the main section is laoded, client side app hydration cannot start,and if JS bundle for the main is large, this could significantly delaye the process
+
+## \*_Code splitting_
+
+## _To mitgate above challange need to use technique code splitting_, for 2nd and 3rd drwaback
+
+### Part that is taking more time need to cover in _Suspense_ so react will not prevent the other page to _loading(streaming)_ and wait becuase of it and also keep it away from _hydrating_ until it get loaded.
+
+### And using Lay Load for the component so it will be loaded when needed. e.g
+
+const MyComponent = lazy(()=> import('./MyComponent.js'))
+
+### This feature called _Selective Hydrating_,
+
+### After these solution some challenge and problems will remain.
+### 1- If file size increase user need to load more data and mor time required., An important question come here, *Should user rally have to downlaod so much data?*
+### 2 -All components will undergo for hydration on the client side.This process can extend the loading time. An imporant come here, *Should all components be hydrated, even those don't need interectvity?*
+### 3- In spit of server's superior capacity of hanlding intensive processing tasks, the buld of js execution will take's place on the user device, it can slow down process, especially on slow devices. An importnat question here: *Should so much of the work be done on the user's device?*
