@@ -346,3 +346,17 @@
 # **Parallel Intercepting Routes**
 
 ### We have implemented both Intercepting and Parallel Intercepting Routes routing in photo-feed route/folder.
+
+# **Caching in Route Handlers**
+
+### we create a time route and make route.ts file then return current localTime, then check it and its updating automatically whenever refresh site, but when refresh after _npm run build_ and then _npm run dev_, time is not updating automatically because its getting time from cache. So we need to make component dynamic using this command, _export const dynamic = "force-dynamic";_ Note: by default the value of dynamic is _auto_ but we used _force-dynamic_ so ensuring the handler is executed for each request made by user. if we know we now rebuild our site using _npm run build_ and then _npm run dev_ then we will get time current time every time we refresh site.
+
+### route Handlers are cached by default  when using GET method with the Response object in Next.js
+
+### How to opted out of caching?
+#### - dynamic mode in Segment Config Option
+#### - using the Request object with the GET method
+#### - employing dynamic function like headers() and cookies()
+#### - using nay HTTP method other than GET
+
+# **Middleware**
