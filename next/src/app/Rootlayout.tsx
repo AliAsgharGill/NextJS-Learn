@@ -18,6 +18,7 @@ const navLinks = [
   { name: "Login", href: "/login" },
   { name: "register", href: "/register" },  
   { name: "Dashboard", href: "/dashboard" },
+  { name: "Complex Dashboard", href: "/complex-dashboard" },
   { name: "Profile", href: "/profile" },
 ];
 
