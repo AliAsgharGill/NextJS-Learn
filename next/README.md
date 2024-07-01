@@ -638,3 +638,11 @@ const MyComponent = lazy(()=> import('./MyComponent.js'))
 ### here we made a _utils_ folder and _page.tsx_ file in it and this file returning a _h1 tag and a message in console.log()_.
 
 ### Then we made two folder with _page.tsx_ files, one is _server-route_ and second is _client route_ and then imported function from _utils_, and use them. we can see output of _server-route_ in termianal and _client-route_ in browser console.
+
+# **Third Party Packages**
+
+### here we will install a package _react-slick_ using the this command _npm i react-slick slick-carousel @types/react-slick_
+
+### Caution: Many third packages can make issues on server side components.
+
+### If we want to use client-component on server side component then we need to make a seprate compnent that we want to use and import it in the sever component.
