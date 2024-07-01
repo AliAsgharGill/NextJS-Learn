@@ -544,9 +544,13 @@ const MyComponent = lazy(()=> import('./MyComponent.js'))
 ### Static rendering is particularly useful for blog pages, e-commerce product pages, documantation, and marketing pages.
 
 ### Static rendering is default rendering strategy in the app router.
+
 ### Static rendering is a strategy the HTML is generated at build itme.
+
 ### Along with the HTML, the RSC payload is created for each component, and JS chunks are proudced for client-sde comopnent hydration in the browser.
+
 ### If we navigate directly to a page route, the corresponding HTML file is served.
+
 ### The route is created on client side using the RSC payload and JS chunks, without any additional requestes to th server.
 
 ### All routes are automatically prepared at bulid time without additional setup.
@@ -560,3 +564,37 @@ const MyComponent = lazy(()=> import('./MyComponent.js'))
 ### FOr static routes, the entire route is prefetched and cached by default.
 
 ### When we load the homepage, NextJS prefetches the all the routes that's link is visible to viewport or when user scroll to that viewport which have link of another page, that route also get prefetched.
+
+# **Dynamic Rendering**
+
+### Dynamic rendeirng is a server strategy where routes are rendered for each user at request time.
+
+### It is useful when a ruoute has data that is personalized to the uer or contains infomation that can only be known at requestt time, such as cookes or the URL's search parameters.
+
+### News websites, personlized e-commerece pages, and social media feeds are some examples where dyamic rendering is beneficail.
+
+## _How to use Dynamically Render_
+
+### During rendering , if a dynamic function is discovered, NextJS will switch to dynamically rendering the whole route.
+
+### In NextJS these dyamic function are: cookies(), headers() and serachParams Using any of these will opt the whole route into dynamic rendering at request time.
+
+## _Dynamic rendering Summary_
+
+### Dynamic rendering is a strategy where the HTML is generated at request time.
+
+### NextJS autmatically switches to dynamic rendering when it come across a dynamic function in the component, such as _cookies(), headers(), or the searchParams object_
+
+### As a developer, we do not need to choose between static adn dyamic rendering. NextJS will automatically choose the best rendering strategy for each route based on the featues and APIs used.
+
+# _Streaming_
+
+### Example a streaming route in app folder, we made a route streaming and import two components and one is coming after 2sec and second is coming after 4second so we cover them with suspense and fallback so it page can immediatly get loaded, we can also use React.Lazy lazy load here.
+
+### Streaming is a strategy that allows for progressive UI rendering from the server.
+
+### Work is divided into chunks and streamed to the client as soon as it's ready. This enables user to see parts of the page immediately, before the entire content has finsihed rendering.
+
+### Streaming significantly imprve both the initial page loading perfromance and the rendering of UI elements tat rely on slower data fetches, which would otherwise block the rendering of the entire route.
+
+### Streaming is integrated into the NExtJS App Router by default.
