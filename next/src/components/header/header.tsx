@@ -16,6 +16,9 @@ const Header = () => {
         <Link href={"/dashboard/line-chart"}>Line Chart</Link>
         <Link href={"/dashboard/bar-chart"}>Bar Chart</Link>
       </div>
+      <div>
+        
+      </div>
     </>
   );
 };

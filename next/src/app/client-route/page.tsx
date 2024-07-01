@@ -6,8 +6,10 @@ import "slick-carousel/slick/slick-theme.css";
 import { serverSideFunction } from "../utils/server-utils";
 import Image from "next/image";
 import { useTheme } from "@/components/themeProvider/page";
+import { clientSideFunctions } from "../utils/client-utils";
 
 export default function ClientRoutePage() {
+  const result = clientSideFunctions();
   const settings = {
     dots: true,
   };
@@ -20,7 +22,7 @@ export default function ClientRoutePage() {
         className={`text-3xl font-bold`}
         style={{ color: theme.colors.secondary }}
       >
-        This is Client Route Page
+        This is Client Route Page and: {result}
       </h1>
       <div className="image-slider-container">
         <Slider {...settings}>

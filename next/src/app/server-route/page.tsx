@@ -8,7 +8,7 @@ export default function ServerRoutePage() {
   return (
     <div>
       <h1>Server Route Page</h1>
-      <div>Result from server side route: {result}</div>
+      <div>Result from server side route: {result} </div>
     </div>
   );
 }

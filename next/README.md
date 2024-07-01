@@ -637,7 +637,7 @@ const MyComponent = lazy(()=> import('./MyComponent.js'))
 
 ### here we made a _utils_ folder and _page.tsx_ file in it and this file returning a _h1 tag and a message in console.log()_.
 
-### Then we made two folder with _page.tsx_ files, one is _server-route_ and second is _client route_ and then imported function from _utils_, and use them. we can see output of _server-route_ in termianal and _client-route_ in browser console.
+### Then we made two folder with _page.tsx_ files, one is _server-route_ and second is _client route_ and then imported function from _utils_, and use them. we can see output of _server-route_ in terminal and _client-route_ in browser console.
 
 # **Third Party Packages**
 
@@ -647,6 +647,18 @@ const MyComponent = lazy(()=> import('./MyComponent.js'))
 
 ### If we want to use client-component on server side component then we need to make a seprate compnent that we want to use and import it in the sever component.
 
-
 # **Create Context**
+
 ### we have made a themeProvider component and using it in Rootlayout, so this is 'use client' component and it cover the whole site, so the children client component will not be converted to client component, they still remamin server components.
+
+# **Client Only**
+
+### We need to install client-only package to convert any function to client function and that can only be used with client components, if it get called/invoked in any server component it will give error.
+
+### Installation _npm i client-only_
+
+### And use it with any component the we want to render only on client side.
+
+# **Client Component Placement**
+
+### Try to use 'use client' mostly at the leaf nodes, becuase it convert its children to client components also.
