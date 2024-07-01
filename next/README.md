@@ -661,4 +661,16 @@ const MyComponent = lazy(()=> import('./MyComponent.js'))
 
 # **Client Component Placement**
 
-### Try to use 'use client' mostly at the leaf nodes, becuase it convert its children to client components also.
+### Try to use 'use client' mostly at the leaf nodes, because it convert its children to client components also.
+
+# **Interleaving Server and Client Components**
+
+### Interleaving mean using both client and server components together in single file.
+
+### Here we have created a route interleaving with file page.tsx file and created for components, two for client component and two for server component
+
+### we have imported both client-component-one and server-component-one in interleaving route and use server components as children of client component.
+
+### Server component can not execute directly need to covert them with opening and closing tags of client component.
+
+### And fs(File system) can only by executed on server components.
