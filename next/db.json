@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Wireless Mouse",
+      "price": 29.99,
+      "description": "Ergonomic wireless mouse with adjustable DPI and long battery life."
+    },
+    {
+      "id": 2,
+      "title": "Mechanical Keyboard",
+      "price": 79.99,
+      "description": "RGB backlit mechanical keyboard with customizable keys and durable switches."
+    },
+    {
+      "id": 3,
+      "title": "HD Monitor",
+      "price": 149.99,
+      "description": "24-inch full HD monitor with ultra-thin bezel and multiple connectivity options."
+    }
+  ]
+}

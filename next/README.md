@@ -686,3 +686,29 @@ const MyComponent = lazy(()=> import('./MyComponent.js'))
 ### _Server components_ support various configurations for _caching_, _revalidating_, and _optimizing data fetching_.
 
 ### On the _client side_, data fetching is typically managed through third-party libraries such as _TanStack Query_ which offers its own robust APIs
+
+# **Fetching Data with Server Components**
+
+### Data stored in Server instead of browser if fetched with server component, if we change data of db.json file it get change and show changed data only on json-server not on NextJS site, These all because of NextJS caching functionality.
+
+### Same as in react but separate files tackle with error and loading.
+
+# **JSON server setup**
+
+### It is necessary to use _npm i json-server@0.17.4_ this version of json-server if want to use.
+
+### Make two file in root folder 1st _db.json_ and add some data in it, and 2nd _server.js_ file. and check data by visiting files.
+
+### Command _node server_ used to run server.js file on localhost:3001
+
+### we can also use _npx json-server --watch db.json_ to run server
+
+### Data will get cached and get not changed even we change it form db.json file.
+
+# **Opting Out Of Caching**
+
+### For individuals data fetches, we can opt(ommit) out of caching by setting the _cache_ option to _no-store_ like this, we can write like this: _fetch("URL Here",{cache:"no-store"})_, now every time data will be fetched and get from data sources instead of cache.
+
+### If there is two or more places in one file we are getting data using fetch and making one _{cache:no-store}_ remeber to make it on lower then others.
+
+### **IMPORTANT**: NextJS will not cache any data or any fetching request if any dynamic function(cookies(), headers(), searchParams) get invoked/called, All the request below dynamic function with not get cached even they don't have _{cache:no-store}_.
