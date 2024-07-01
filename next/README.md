@@ -709,6 +709,30 @@ const MyComponent = lazy(()=> import('./MyComponent.js'))
 
 ### For individuals data fetches, we can opt(ommit) out of caching by setting the _cache_ option to _no-store_ like this, we can write like this: _fetch("URL Here",{cache:"no-store"})_, now every time data will be fetched and get from data sources instead of cache.
 
-### If there is two or more places in one file we are getting data using fetch and making one _{cache:no-store}_ remeber to make it on lower then others.
+### If there is two or more places in one file we are getting data using fetch and making one _{cache:no-store}_ remember to make it on lower then others.
 
 ### **IMPORTANT**: NextJS will not cache any data or any fetching request if any dynamic function(cookies(), headers(), searchParams) get invoked/called, All the request below dynamic function with not get cached even they don't have _{cache:no-store}_.
+
+# **Request Memoization**
+
+### Only apply to _GET_ request, memoization only apply within the React Component Tree.
+
+### When we make request form a particular API e.g. *https://jsonplaceholder.typicode.com/users* in the _layout.tsx_ file, now if the the file related to this _layout.tsx_ or page.tsx file make request from same url *https://jsonplaceholder.typicode.com/users* React(NextJS) have stored data in _Request Memoization_. so it will save time and cost. In video at 4:20 its diagram is also define in detail.
+
+### Request Memoization is technique that duplicates requests for the same data within a single render pass.
+
+### This approach allows for re-use of data in a React Component tree, prevents redundant network calls and enhance performance.
+
+### For the initial request, data is fetched from an external source and the result is stored in memory.
+
+### Subsequent requests for the same data within the same render pass retrieve the result from memory, by passing the need to make the request again.
+
+### This optimization not only enhances performance but also simplifies data fetching within a component tree.
+
+### When the same data is need across different components in a route(e.g., in a layout, Page, and multiple components), it eliminates the need to fetch data at the top of the tree and pass props between components, Instead data can be fetched directly within the components that require it, without concerns about the performance implications of multiple network requests for the same data.
+
+# **Fetching Data with Client Components**
+
+### Many things same as react have just need to use _'use client'_,and some things client component not support like _Request Memoization, Caching and Revalidation_, so for these we will use _TanStack Query_.
+
+### Instead of relaying on external api's, we can also call route handler on client component and it run on server side.
