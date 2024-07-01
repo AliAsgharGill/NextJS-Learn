@@ -348,6 +348,7 @@
 ### We have implemented both Intercepting and Parallel Intercepting Routes routing in photo-feed route/folder.
 
 <<<<<<< HEAD
+
 # **Route Handlers**
 
 ### We can create custom request handlers for our routes using a feature called route handlers.
@@ -365,10 +366,13 @@
 ### _IMPORTANT_: if we have both files _route.ts_ and _page.ts_ in same folder then _route.ts_ will executed in the browser by default. to make it correct need to create a folder with _api_ folder in that particular folder and move _route.ts_ in _api_ folder. like we did in /me route/folder: e.g me->api>route.ts
 
 # **SIMPLE CRUD**
-### To make GET request simply make an asynchronous function in *api/route.ts* file or any other file you want to make request,    and then return Response.json(endpintHere)
 
-### To make POST request simpl make an asynchronous function, see code exampole 
+### To make GET request simply make an asynchronous function in _api/route.ts_ file or any other file you want to make request, and then return Response.json(endpintHere)
+
+### To make POST request simpl make an asynchronous function, see code exampole
+
 =======
+
 # **Caching in Route Handlers**
 
 ### we create a time route and make route.ts file then return current localTime, then check it and its updating automatically whenever refresh site, but when refresh after _npm run build_ and then _npm run dev_, time is not updating automatically because its getting time from cache. So we need to make component dynamic using this command, _export const dynamic = "force-dynamic";_ Note: by default the value of dynamic is _auto_ but we used _force-dynamic_ so ensuring the handler is executed for each request made by user. if we know we now rebuild our site using _npm run build_ and then _npm run dev_ then we will get time current time every time we refresh site.
@@ -537,15 +541,15 @@ const MyComponent = lazy(()=> import('./MyComponent.js'))
 
 ### If we do console.log() in server component, we will output in terminal instead of browser console.
 
-### But server components have some limitions, can't use Hooks(useState, useMemo, useEffect,..etc) and events(onClick, onChange ... etc).
+### But server components have some limitations, can't use Hooks(useState, useMemo, useEffect,..etc) and events(onClick, onChange ... etc).
 
 ### _Client Components_
 
-### we need to use a directive "use client" to make any compoentn client components. Now componenent can access the API of browser.
+### we need to use a directive "use client" to make any component client components. Now component can access the API of browser.
 
-### Client Component once pre-render on server side then render on client side. To see once rendered on server side write console.log("Hello") and then go to client and see "Hello" in console but not in the terminal yet, to see in the terminal refersh the site in the browser then we can see value of console ("Hello") in terminal.
+### Client Component once pre-render on server side then render on client side. To see once rendered on server side write console.log("Hello") and then go to client and see "Hello" in console but not in the terminal yet, to see in the terminal refresh the site in the browser then we can see value of console ("Hello") in terminal.
 
-### Due client component once pre-renderd on server site helpful, user will HTML content screen instead of blank screen.
+### Due client component once pre-render on server site helpful, user will HTML content screen instead of blank screen.
 
 # **Server Rendering Strategies**
 
@@ -557,29 +561,29 @@ const MyComponent = lazy(()=> import('./MyComponent.js'))
 
 ## _Static Rendering_
 
-### Static rendering is a server rendring strategy where we generate HTML pages at the time of building our application.
+### Static rendering is a server rendering strategy where we generate HTML pages at the time of building our application.
 
-### This apporach allows the page to built once, cached by CDN, and served to client instantly.
+### This approach allows the page to built once, cached by CDN, and served to client instantly.
 
-### This optmization also enables you to share the result of the rendring work among different users, resulting significant perferomance boost for application.
+### This optimization also enables you to share the result of the rendering work among different users, resulting significant performance boost for application.
 
-### Static rendering is particularly useful for blog pages, e-commerce product pages, documantation, and marketing pages.
+### Static rendering is particularly useful for blog pages, e-commerce product pages, documentation, and marketing pages.
 
 ### Static rendering is default rendering strategy in the app router.
 
-### Static rendering is a strategy the HTML is generated at build itme.
+### Static rendering is a strategy the HTML is generated at build item.
 
-### Along with the HTML, the RSC payload is created for each component, and JS chunks are proudced for client-sde comopnent hydration in the browser.
+### Along with the HTML, the RSC payload is created for each component, and JS chunks are produced for client-sde component hydration in the browser.
 
 ### If we navigate directly to a page route, the corresponding HTML file is served.
 
-### The route is created on client side using the RSC payload and JS chunks, without any additional requestes to th server.
+### The route is created on client side using the RSC payload and JS chunks, without any additional requests to th server.
 
-### All routes are automatically prepared at bulid time without additional setup.
+### All routes are automatically prepared at build time without additional setup.
 
 # _Prefetching_
 
-### Prefetching is a technique used to preload a ruote in the background before hte user navigate to it.
+### Prefetching is a technique used to preload a route in the background before hte user navigate to it.
 
 ### Routes are automatically prefetched as they become visible in the user's viewport, either when the page first loads or as it comes into view through scrolling.
 
@@ -589,11 +593,11 @@ const MyComponent = lazy(()=> import('./MyComponent.js'))
 
 # **Dynamic Rendering**
 
-### Dynamic rendeirng is a server strategy where routes are rendered for each user at request time.
+### Dynamic rendering is a server strategy where routes are rendered for each user at request time.
 
-### It is useful when a ruoute has data that is personalized to the uer or contains infomation that can only be known at requestt time, such as cookes or the URL's search parameters.
+### It is useful when a route has data that is personalized to the uer or contains information that can only be known at request time, such as cookies or the URL's search parameters.
 
-### News websites, personlized e-commerece pages, and social media feeds are some examples where dyamic rendering is beneficail.
+### News websites, personalized e-commerce pages, and social media feeds are some examples where dynamic rendering is beneficial.
 
 ## _How to use Dynamically Render_
 
@@ -605,19 +609,32 @@ const MyComponent = lazy(()=> import('./MyComponent.js'))
 
 ### Dynamic rendering is a strategy where the HTML is generated at request time.
 
-### NextJS autmatically switches to dynamic rendering when it come across a dynamic function in the component, such as _cookies(), headers(), or the searchParams object_
+### NextJS automatically switches to dynamic rendering when it come across a dynamic function in the component, such as _cookies(), headers(), or the searchParams object_
 
-### As a developer, we do not need to choose between static adn dyamic rendering. NextJS will automatically choose the best rendering strategy for each route based on the featues and APIs used.
+### As a developer, we do not need to choose between static adn dynamic rendering. NextJS will automatically choose the best rendering strategy for each route based on the features and APIs used.
 
 # _Streaming_
 
-### Example a streaming route in app folder, we made a route streaming and import two components and one is coming after 2sec and second is coming after 4second so we cover them with suspense and fallback so it page can immediatly get loaded, we can also use React.Lazy lazy load here.
+### Example a streaming route in app folder, we made a route streaming and import two components and one is coming after 2sec and second is coming after 4second so we cover them with suspense and fallback so it page can immediately get loaded, we can also use React.Lazy lazy load here.
 
 ### Streaming is a strategy that allows for progressive UI rendering from the server.
 
-### Work is divided into chunks and streamed to the client as soon as it's ready. This enables user to see parts of the page immediately, before the entire content has finsihed rendering.
+### Work is divided into chunks and streamed to the client as soon as it's ready. This enables user to see parts of the page immediately, before the entire content has finished rendering.
 
-### Streaming significantly imprve both the initial page loading perfromance and the rendering of UI elements tat rely on slower data fetches, which would otherwise block the rendering of the entire route.
+### Streaming significantly improve both the initial page loading performance and the rendering of UI elements tat rely on slower data fetches, which would otherwise block the rendering of the entire route.
 
 ### Streaming is integrated into the NExtJS App Router by default.
->>>>>>> 132d80528dbfe6acd5eaf9802325f8768aaa46bd
+
+> > > > > > > 132d80528dbfe6acd5eaf9802325f8768aaa46bd
+
+# **Server Only Code**
+
+## _Server Only_ is a npm package. we use it to make component run only on server side.
+
+### Like here below we have used Intentionally _utils/page.tsx_ In both side client and server, and its running but only want to run it on server. To prevent it from client-side if developer unIntentionally called _utils/pages.tsx_ in client-side then it will not work, and give an error, because we have simply _import "server-only"_ package.
+
+### It increase security, reliability and performance.
+
+### here we made a _utils_ folder and _page.tsx_ file in it and this file returning a _h1 tag and a message in console.log()_.
+
+### Then we made two folder with _page.tsx_ files, one is _server-route_ and second is _client route_ and then imported function from _utils_, and use them. we can see output of _server-route_ in termianal and _client-route_ in browser console.
