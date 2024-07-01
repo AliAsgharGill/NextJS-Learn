@@ -674,3 +674,15 @@ const MyComponent = lazy(()=> import('./MyComponent.js'))
 ### Server component can not execute directly need to covert them with opening and closing tags of client component.
 
 ### And fs(File system) can only by executed on server components.
+
+# **Data Fetching In App Router**
+
+### App router uses the React Server Component (RSC) architecture, which allows us to fetch data using either server components or client components.
+
+### Its _advantageous to fetch data using server components_, as they have _direct access to server-side resources such as databases or file systems_.
+
+### This is not taps into server's computational power and proximity to data sources for efficient data fetching and rendering but also minimizes the need for client-side processing.
+
+### _Server components_ support various configurations for _caching_, _revalidating_, and _optimizing data fetching_.
+
+### On the _client side_, data fetching is typically managed through third-party libraries such as _TanStack Query_ which offers its own robust APIs
