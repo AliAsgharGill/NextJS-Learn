@@ -504,4 +504,59 @@ const MyComponent = lazy(()=> import('./MyComponent.js'))
 ### Efficient Streaming(Loaidng/showing)
 
 ### Server components take charge of data fetcing and static rendering, whitel Clinet components are tasked with rendering the interactive elments of the application.
+
 ### The bbottom lin eis that the RSC architecture enables React application sot leverage the bes aspects of both server and client rendering.
+
+# **Server and Client Components**
+
+### _Server Components_
+
+### By default all components in NextJS are Server components, and run only on the server.
+
+### If we do console.log() in server component, we will output in terminal instead of browser console.
+
+### But server components have some limitions, can't use Hooks(useState, useMemo, useEffect,..etc) and events(onClick, onChange ... etc).
+
+### _Client Components_
+
+### we need to use a directive "use client" to make any compoentn client components. Now componenent can access the API of browser.
+
+### Client Component once pre-render on server side then render on client side. To see once rendered on server side write console.log("Hello") and then go to client and see "Hello" in console but not in the terminal yet, to see in the terminal refersh the site in the browser then we can see value of console ("Hello") in terminal.
+
+### Due client component once pre-renderd on server site helpful, user will HTML content screen instead of blank screen.
+
+# **Server Rendering Strategies**
+
+### Static Rendering
+
+### Dynamic Rendering
+
+### Streaming
+
+## _Static Rendering_
+
+### Static rendering is a server rendring strategy where we generate HTML pages at the time of building our application.
+
+### This apporach allows the page to built once, cached by CDN, and served to client instantly.
+
+### This optmization also enables you to share the result of the rendring work among different users, resulting significant perferomance boost for application.
+
+### Static rendering is particularly useful for blog pages, e-commerce product pages, documantation, and marketing pages.
+
+### Static rendering is default rendering strategy in the app router.
+### Static rendering is a strategy the HTML is generated at build itme.
+### Along with the HTML, the RSC payload is created for each component, and JS chunks are proudced for client-sde comopnent hydration in the browser.
+### If we navigate directly to a page route, the corresponding HTML file is served.
+### The route is created on client side using the RSC payload and JS chunks, without any additional requestes to th server.
+
+### All routes are automatically prepared at bulid time without additional setup.
+
+# _Prefetching_
+
+### Prefetching is a technique used to preload a ruote in the background before hte user navigate to it.
+
+### Routes are automatically prefetched as they become visible in the user's viewport, either when the page first loads or as it comes into view through scrolling.
+
+### FOr static routes, the entire route is prefetched and cached by default.
+
+### When we load the homepage, NextJS prefetches the all the routes that's link is visible to viewport or when user scroll to that viewport which have link of another page, that route also get prefetched.
