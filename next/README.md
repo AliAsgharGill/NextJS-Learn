@@ -347,6 +347,7 @@
 
 ### We have implemented both Intercepting and Parallel Intercepting Routes routing in photo-feed route/folder.
 
+<<<<<<< HEAD
 # **Route Handlers**
 
 ### We can create custom request handlers for our routes using a feature called route handlers.
@@ -367,3 +368,256 @@
 ### To make GET request simply make an asynchronous function in *api/route.ts* file or any other file you want to make request,    and then return Response.json(endpintHere)
 
 ### To make POST request simpl make an asynchronous function, see code exampole 
+=======
+# **Caching in Route Handlers**
+
+### we create a time route and make route.ts file then return current localTime, then check it and its updating automatically whenever refresh site, but when refresh after _npm run build_ and then _npm run dev_, time is not updating automatically because its getting time from cache. So we need to make component dynamic using this command, _export const dynamic = "force-dynamic";_ Note: by default the value of dynamic is _auto_ but we used _force-dynamic_ so ensuring the handler is executed for each request made by user. if we know we now rebuild our site using _npm run build_ and then _npm run dev_ then we will get time current time every time we refresh site.
+
+### route Handlers are cached by default when using GET method with the Response object in Next.js
+
+### How to opted out of caching?
+
+#### - dynamic mode in Segment Config Option
+
+#### - using the Request object with the GET method
+
+#### - employing dynamic function like headers() and cookies()
+
+#### - using nay HTTP method other than GET
+
+# **Middleware**
+
+### middleware file should be only one in a project.
+
+### middleware in NextJS is a powreful fetue that offers a robust way to intercept and control the flow of reqests and responses within your applications.
+
+### it does this at gloabl level significantly enhancing features like redirection, URL rewrites, authentication, header and cookies management and more.
+
+### Middleware allows us to specify paths where it will be active
+
+#### - Custom matcher config
+
+#### - Conditional statements
+
+# **Routing Summary**
+
+### Till we have learned these topics of routing
+
+### Route definition
+
+### Pages and layouts
+
+### Dynamic routes
+
+### Route groups
+
+### Linking and Navigation
+
+### Handling errors in routes
+
+### Parallel and Intercepting routes
+
+### Route handlers and middleware
+
+# **Rendering**
+
+## **CSR**
+
+### CSR => Used by React, in it server send HTML AND JS files to client and it CSR render the whole site in the browser so initial loading time increased, and in CSR server only send a single div in Html file that is not helpul for SEO, parsing and other etc.
+
+## **SSR**
+
+### To solve CSR problems SSR come, it render the HTML page on server site and then complete render HTML file and JS file send to Client(browser). and complete file come with metadata so it improve SEO, and loading time decrese due to rendering on Server Site.
+
+## _Hydration_
+
+### Sending request by client(browser) and then Server response to it by providing Render Html and JS file, this process in known as Hydration. Content should be same as on the Client as it was on the Server, no changes if changes happen it will show error of hydration.
+
+## _Server side solutions_
+
+### 1- Static site generation (SSG)
+
+### 2- Server side Rendering (SSR)
+
+### _SSG_ occurs at build time, when the application is deployed on the server. This result in pages that are already rendered and read to serve. It is ideal for content that does't change often, like blog posts
+
+### _SSR_ on the other hand, renders pages on-demand in response to user requests. it is suiteable for presonalized content like social meda feeds, where the HTML depends on the logged-in user.
+
+### Server-side Rendering (SSR) was significant imporvement over Client-Side Rendering (CSR), providing faster intial laods and better SEO.
+
+### _Drawback of SSR_
+
+### 1- Having to load the data for the entire page
+
+### 2- Load the JavaScript for the entire page, mean JS required for component need to be fully loaded before on the client side before the hydaration process start.
+
+### 3- Hydration the entire page, mean same HTML and JavaScript load on client side as it was on the Server side. So all compoents need to be hydrated before they become inteactive.
+
+### mean _Create all or nothing_ waterfall problem that spans from the server to the client.
+
+### This is inefficient if some parts of APP are slower than other, as is often the case in real-world apps.
+
+## **Solution**
+
+### _Suspense SSR Architecture_
+
+### Use the \*<Suspense fallback=<Loading Component Here, Spinner, Loading... etc.> > component to unloack major SSR featues:
+
+### 1- HTML streaming on the Server
+
+### 2- Selective Hydaration on the client
+
+### Note: When client side send request initially to server for data, before getting initailly data from server it is _Non-intrective UI_, then Sever send _full HTML + Js fils_ then client display whole HTML and after completely loading the loaded JS bundle, then react proceed to add _Interective UI_
+
+### For 1st drawback, This was helpful to solve one problem, HTML loading(streaming) on the sever, so we no need to fetch everything before show anything. we can speedup html delivery now but other problem is still remaianig.
+
+### _The other chellange_
+
+### Untill JS for the main section is laoded, client side app hydration cannot start,and if JS bundle for the main is large, this could significantly delaye the process
+
+## \*_Code splitting_
+
+## _To mitgate above challange need to use technique code splitting_, for 2nd and 3rd drwaback
+
+### Part that is taking more time need to cover in _Suspense_ so react will not prevent the other page to _loading(streaming)_ and wait becuase of it and also keep it away from _hydrating_ until it get loaded.
+
+### And using Lay Load for the component so it will be loaded when needed. e.g
+
+const MyComponent = lazy(()=> import('./MyComponent.js'))
+
+### This feature called _Selective Hydrating_,
+
+### After these solution some challenge and problems will remain.
+
+### 1- If file size increase user need to load more data and mor time required., An important question come here, _Should user rally have to downlaod so much data?_
+
+### 2 -All components will undergo for hydration on the client side.This process can extend the loading time. An imporant come here, _Should all components be hydrated, even those don't need interectvity?_
+
+### 3- In spit of server's superior capacity of hanlding intensive processing tasks, the buld of js execution will take's place on the user device, it can slow down process, especially on slow devices. An importnat question here: _Should so much of the work be done on the user's device?_
+
+# **Solution: React Server Component**
+
+### This approach aims to leverage the strength of both _Server and Client_ environments, _oprimizing for effciency, load times, and interactivity_
+
+### This architecture _RSC_ introduces a dual-compnent model.
+
+### 1- Client Components
+
+### 2- Server Components
+
+### THis distinction is not bases on th functionality of the components but ratr on where they execute and the specific environments they are designed to interact with.
+
+### _Server components_
+
+### It reduce bundel size
+
+### Direct access to server-side resources
+
+### Enhanced Security
+
+### Importve data fetching, elmeinated waterfall on client-side
+
+### Caching
+
+### Faster initali page load and First Contentful Paint
+
+### Improve SEO
+
+### Efficient Streaming(Loaidng/showing)
+
+### Server components take charge of data fetcing and static rendering, whitel Clinet components are tasked with rendering the interactive elments of the application.
+
+### The bbottom lin eis that the RSC architecture enables React application sot leverage the bes aspects of both server and client rendering.
+
+# **Server and Client Components**
+
+### _Server Components_
+
+### By default all components in NextJS are Server components, and run only on the server.
+
+### If we do console.log() in server component, we will output in terminal instead of browser console.
+
+### But server components have some limitions, can't use Hooks(useState, useMemo, useEffect,..etc) and events(onClick, onChange ... etc).
+
+### _Client Components_
+
+### we need to use a directive "use client" to make any compoentn client components. Now componenent can access the API of browser.
+
+### Client Component once pre-render on server side then render on client side. To see once rendered on server side write console.log("Hello") and then go to client and see "Hello" in console but not in the terminal yet, to see in the terminal refersh the site in the browser then we can see value of console ("Hello") in terminal.
+
+### Due client component once pre-renderd on server site helpful, user will HTML content screen instead of blank screen.
+
+# **Server Rendering Strategies**
+
+### Static Rendering
+
+### Dynamic Rendering
+
+### Streaming
+
+## _Static Rendering_
+
+### Static rendering is a server rendring strategy where we generate HTML pages at the time of building our application.
+
+### This apporach allows the page to built once, cached by CDN, and served to client instantly.
+
+### This optmization also enables you to share the result of the rendring work among different users, resulting significant perferomance boost for application.
+
+### Static rendering is particularly useful for blog pages, e-commerce product pages, documantation, and marketing pages.
+
+### Static rendering is default rendering strategy in the app router.
+
+### Static rendering is a strategy the HTML is generated at build itme.
+
+### Along with the HTML, the RSC payload is created for each component, and JS chunks are proudced for client-sde comopnent hydration in the browser.
+
+### If we navigate directly to a page route, the corresponding HTML file is served.
+
+### The route is created on client side using the RSC payload and JS chunks, without any additional requestes to th server.
+
+### All routes are automatically prepared at bulid time without additional setup.
+
+# _Prefetching_
+
+### Prefetching is a technique used to preload a ruote in the background before hte user navigate to it.
+
+### Routes are automatically prefetched as they become visible in the user's viewport, either when the page first loads or as it comes into view through scrolling.
+
+### FOr static routes, the entire route is prefetched and cached by default.
+
+### When we load the homepage, NextJS prefetches the all the routes that's link is visible to viewport or when user scroll to that viewport which have link of another page, that route also get prefetched.
+
+# **Dynamic Rendering**
+
+### Dynamic rendeirng is a server strategy where routes are rendered for each user at request time.
+
+### It is useful when a ruoute has data that is personalized to the uer or contains infomation that can only be known at requestt time, such as cookes or the URL's search parameters.
+
+### News websites, personlized e-commerece pages, and social media feeds are some examples where dyamic rendering is beneficail.
+
+## _How to use Dynamically Render_
+
+### During rendering , if a dynamic function is discovered, NextJS will switch to dynamically rendering the whole route.
+
+### In NextJS these dyamic function are: cookies(), headers() and serachParams Using any of these will opt the whole route into dynamic rendering at request time.
+
+## _Dynamic rendering Summary_
+
+### Dynamic rendering is a strategy where the HTML is generated at request time.
+
+### NextJS autmatically switches to dynamic rendering when it come across a dynamic function in the component, such as _cookies(), headers(), or the searchParams object_
+
+### As a developer, we do not need to choose between static adn dyamic rendering. NextJS will automatically choose the best rendering strategy for each route based on the featues and APIs used.
+
+# _Streaming_
+
+### Example a streaming route in app folder, we made a route streaming and import two components and one is coming after 2sec and second is coming after 4second so we cover them with suspense and fallback so it page can immediatly get loaded, we can also use React.Lazy lazy load here.
+
+### Streaming is a strategy that allows for progressive UI rendering from the server.
+
+### Work is divided into chunks and streamed to the client as soon as it's ready. This enables user to see parts of the page immediately, before the entire content has finsihed rendering.
+
+### Streaming significantly imprve both the initial page loading perfromance and the rendering of UI elements tat rely on slower data fetches, which would otherwise block the rendering of the entire route.
+
+### Streaming is integrated into the NExtJS App Router by default.
+>>>>>>> 132d80528dbfe6acd5eaf9802325f8768aaa46bd
