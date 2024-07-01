@@ -646,3 +646,7 @@ const MyComponent = lazy(()=> import('./MyComponent.js'))
 ### Caution: Many third packages can make issues on server side components.
 
 ### If we want to use client-component on server side component then we need to make a seprate compnent that we want to use and import it in the sever component.
+
+
+# **Create Context**
+### we have made a themeProvider component and using it in Rootlayout, so this is 'use client' component and it cover the whole site, so the children client component will not be converted to client component, they still remamin server components.
